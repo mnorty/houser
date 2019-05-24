@@ -11,6 +11,7 @@ class Wizard extends Component {
       state: '',
       zipcode: 0
     }
+    console.log(this.state)
   }
 
   handleName(name) {
