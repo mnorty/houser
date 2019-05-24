@@ -22,4 +22,16 @@ module.exports = {
       console.log(err)
     } )
   },
+
+  delete:(req,res,next) => {
+    const dbInstance = req.app.get('db');
+    const {id} = req.params;//this isnt picking up the number I want
+
+    dbInstance.delete_house(6)//this needs to be the Switching with the display
+    .then( () => res.sendStatus(200))
+    .catch( err => {
+      res.status(500).send({errorMessage: "Oops that didn't work"});
+      console.log(err)
+    } );
+  }
 }

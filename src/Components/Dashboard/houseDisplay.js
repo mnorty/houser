@@ -11,7 +11,7 @@ class House extends Component {
     //         // this is fired after we recieve the response from the server, res.data doesnt exist until we get a resonse from the server. 
     //     })
     // }
-
+    
     render(){
         return (
         <div className="housePost">
@@ -25,7 +25,7 @@ class House extends Component {
                     <p >img: {this.props.house.img}</p>
                     <p >Mortgage: {this.props.house.mortgage}</p>
                     <p >Rent: {this.props.house.rent}</p>
-                    <button onClick={this.handleDeleteHouse}>Delete</button>
+                    <button onClick={this.props.handleDeleteHouse}>Delete</button>
                 </div>
             </div>        
         </div>
