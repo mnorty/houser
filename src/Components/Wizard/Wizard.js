@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 class Wizard extends Component {
   constructor(){
@@ -39,6 +40,19 @@ class Wizard extends Component {
     console.log(this.state.zipcode)
   }
 
+  handleAddProduct = () => {
+    console.log(this.state)
+    axios.post('/api/houses' , {
+      name:this.state.name,
+      address:this.state.address,
+      city:this.state.address,
+      state:this.state.address,
+      zipcode:this.state.zipcode
+    })
+    .then((res) => {
+      console.log(res)
+    })
+  }
   render(){
     return(
       <div>Wizard
@@ -55,26 +69,27 @@ class Wizard extends Component {
          className='inputField'
          onChange={e => this.handleAddress(e.target.value)}
          type = 'text'
-         placeholder='Property Name'
+         placeholder='Property Address'
          />
          <input
          className='inputField'
          onChange={e => this.handleCity(e.target.value)}
          type = 'text'
-         placeholder='Property Name'
+         placeholder='Property City'
          />
          <input
          className='inputField'
          onChange={e => this.handleState(e.target.value)}
          type = 'text'
-         placeholder='Property Name'
+         placeholder='Property State'
          />
          <input
          className='inputField'
          onChange={e => this.handleZipcode(e.target.value)}
          type = 'text'
-         placeholder='Property Name'
+         placeholder='Property ZipCode'
          />
+         <button onClick={this.handleAddProduct}>Add Property</button>
       </div>
     )
   }
