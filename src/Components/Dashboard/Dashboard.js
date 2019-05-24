@@ -35,7 +35,7 @@ class Dashboard extends Component {
     axios.delete(`/api/houses/${this.state.house.id}`)
     //this provides the url and the id we want to delete, it gets the logic for how to handle the delete from controller.js
     .then(res => {
-        this.props.handleGetHouse()
+        this.handleGetHouse()
         // this is fired after we recieve the response from the server, res.data doesnt exist until we get a resonse from the server. 
     })
 }
